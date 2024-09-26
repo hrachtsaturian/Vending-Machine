@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
 
+import VendingMachine from "./VendingMachine";
+
+import Borjomi from "./Borjomi";
+import Shawarma from "./Shawarma";
+import SunflowerSeeds from "./SunflowerSeeds";
+
+// App component is the main component which renders the Vending Machine app
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<VendingMachine />} />
+          <Route path="/borjomi" element={<Borjomi />} />
+          <Route path="/shawarma" element={<Shawarma />} />
+          <Route path="/sunflowerseeds" element={<SunflowerSeeds />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
